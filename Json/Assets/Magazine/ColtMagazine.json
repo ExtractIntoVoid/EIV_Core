@@ -1,0 +1,18 @@
+{
+	"BaseID": "ColtMagazine",
+	"ItemType": "IMagazine",
+	"Weight": 1.2,
+	"Volume": 0.2,
+	"MagSize": 7,
+	"SupportedAmmo" : 
+	[
+		"Ammo_45ACPx7",
+		"Ammo_45ACP"
+	],
+	"AssetPath": "scenes/Items/Magazine/ColtMagazine.tscn",
+	"Tags": 
+	[
+		"ColtMagazine",
+		"Magazine"
+	]
+}

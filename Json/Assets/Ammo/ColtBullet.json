@@ -1,0 +1,16 @@
+{
+	"BaseID": "ColtBullet",
+	"ItemType": "IAmmo",
+	"Weight": 0.20,
+	"Volume": 0.0,
+	"AssetPath": "scenes/Items/Ammo/ColtBullet.tscn",
+	"Damage": 20,
+	"ArmorDamage": 12,
+	"DamageType": "Bullet",
+	"Speed": 0.5,
+	"Tags": [
+		"Ammo_45ACP",
+		"Ammo_45",
+		"Ammo"
+	]
+}

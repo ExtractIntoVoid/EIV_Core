@@ -1,0 +1,91 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7akb7wtp8bkv"]
+
+[ext_resource type="ArrayMesh" uid="uid://cj2usr01lkhlq" path="res://assets/sketchfab/injector/meshes/Sketchfab_Scene_Object_0.res" id="1_to2ag"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e0gbm"]
+size = Vector3(0.273403, 0.0663452, 0.0673218)
+
+[sub_resource type="Animation" id="Animation_oxpm0"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Adrenalin_Obj")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.133381, -0.0352107, -0.0351086)
+
+[sub_resource type="Animation" id="Animation_xwltk"]
+resource_name = "Start"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Adrenalin_Obj")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.366667, 1, 0, 0.119549, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Adrenalin_Obj")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Adrenalin_Obj")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/3/type = "position_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape3D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.133381, -0.0352107, -0.0351086, 0.333333, 1, -0.133381, 0.0814788, -0.0351086)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape3D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/5/type = "scale_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CollisionShape3D")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rnjy1"]
+_data = {
+"RESET": SubResource("Animation_oxpm0"),
+"Start": SubResource("Animation_xwltk")
+}
+
+[node name="Adrenalin" type="RigidBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.133381, -0.0352107, -0.0351086)
+shape = SubResource("BoxShape3D_e0gbm")
+
+[node name="Adrenalin_Obj" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Adrenalin_Obj"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.195275, -0.119283, 0.130693)
+mesh = ExtResource("1_to2ag")
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rnjy1")
+}

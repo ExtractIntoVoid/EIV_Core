@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://u8y1owc53cvf"]
+
+[ext_resource type="ArrayMesh" path="res://assets/sketchfab/low-poly_colt_m45a1/magazine/mag1.res" id="1_4prps"]
+[ext_resource type="ArrayMesh" path="res://assets/sketchfab/low-poly_colt_m45a1/magazine/mag2.res" id="2_woj4c"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ybwil"]
+properties/0/path = NodePath("..:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("..:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("..:scale")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4sb52"]
+size = Vector3(0.0253906, 0.116013, 0.0868225)
+
+[node name="ColtMagazine" type="RigidBody3D"]
+
+[node name="MSync" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_ybwil")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0169819, -0.0561447, 0.0332067)
+shape = SubResource("BoxShape3D_4sb52")
+
+[node name="MagazineGroup" type="Node3D" parent="."]
+
+[node name="Mag1" type="MeshInstance3D" parent="MagazineGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0173547, 0, 0)
+mesh = ExtResource("1_4prps")
+
+[node name="Mag2" type="MeshInstance3D" parent="MagazineGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0173547, 0, 0)
+mesh = ExtResource("2_woj4c")
