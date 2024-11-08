@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://bfrfd1gw1rype"]
+[gd_scene load_steps=19 format=3 uid="uid://bfrfd1gw1rype"]
 
+[ext_resource type="Script" path="res://csharp/Items/ColtGun.cs" id="1_ard3x"]
 [ext_resource type="ArrayMesh" uid="uid://cfsk2tyso27dv" path="res://assets/sketchfab/low-poly_colt_m45a1/gun/frame1.res" id="2_l6il0"]
 [ext_resource type="ArrayMesh" uid="uid://c5mqltsosw3mt" path="res://assets/sketchfab/low-poly_colt_m45a1/gun/frame2.res" id="3_napps"]
 [ext_resource type="ArrayMesh" uid="uid://ds8p41pxw5b0u" path="res://assets/sketchfab/low-poly_colt_m45a1/gun/frame3.res" id="4_4ttgi"]
@@ -35,6 +36,7 @@ properties/3/replication_mode = 1
 
 [node name="ColtM45a1" type="RigidBody3D"]
 freeze = true
+script = ExtResource("1_ard3x")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000910965, -0.0496871, -0.0102047)

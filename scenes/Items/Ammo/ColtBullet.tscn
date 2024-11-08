@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://3g47oij57cxp"]
+[gd_scene load_steps=7 format=3 uid="uid://3g47oij57cxp"]
 
+[ext_resource type="Script" path="res://csharp/Physics/ColtBullet.cs" id="1_r28tq"]
 [ext_resource type="ArrayMesh" uid="uid://dy8m2j2t6rs07" path="res://assets/sketchfab/low-poly_colt_m45a1/ammo/ammo1.res" id="1_sqxlq"]
 [ext_resource type="ArrayMesh" uid="uid://bibmnnho4snve" path="res://assets/sketchfab/low-poly_colt_m45a1/ammo/ammo2.res" id="2_75ipx"]
 [ext_resource type="ArrayMesh" uid="uid://ii7hnrae4rfb" path="res://assets/sketchfab/low-poly_colt_m45a1/ammo/ammo3.res" id="3_16aoq"]
@@ -19,6 +20,7 @@ properties/2/replication_mode = 2
 size = Vector3(0.0135254, 0.0337311, 0.0132538)
 
 [node name="ColtBullet" type="Area3D"]
+script = ExtResource("1_r28tq")
 
 [node name="MSync" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_l054o")

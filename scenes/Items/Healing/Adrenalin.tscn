@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7akb7wtp8bkv"]
+[gd_scene load_steps=7 format=3 uid="uid://b7akb7wtp8bkv"]
 
+[ext_resource type="Script" path="res://csharp/Items/Adrenalin.cs" id="1_liif5"]
 [ext_resource type="ArrayMesh" uid="uid://cj2usr01lkhlq" path="res://assets/sketchfab/injector/meshes/Sketchfab_Scene_Object_0.res" id="1_to2ag"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e0gbm"]
@@ -74,6 +75,7 @@ _data = {
 }
 
 [node name="Adrenalin" type="RigidBody3D"]
+script = ExtResource("1_liif5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.133381, -0.0352107, -0.0351086)
