@@ -15,7 +15,7 @@ public partial class Adrenalin : EffectBase
     public override void EffectTick(int Strength)
     {
         base.EffectTick(Strength);
-        if (this.ParentNode is Player player && player != null)
+        if (this.ParentNode is BasePlayer player && player != null)
         {
             var ui = player.Camera.GetNode<MainUI>("MainUI");
             ui.SetShader(5, 0.2f, 0, 0.4f, 0);
