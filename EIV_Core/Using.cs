@@ -1,0 +1,1 @@
+using CoroutineStaticExt = EIV_Coroutines.CoroutineWorkers.CoroutineStaticExt<double>;

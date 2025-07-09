@@ -21,6 +21,18 @@ public static class ModuleExtensions
         return out_t != null;
     }
 
+    public static void AddModule<T>(this object obj) where T : IModule, new()
+    {
+        ModuleSub.AddModule?.Invoke(obj, new T());
+    }
+
+    public static T AddAndGetModule<T>(this object obj) where T : IModule, new()
+    {
+        T module = new();
+        ModuleSub.AddModule?.Invoke(obj, module);
+        return module;
+    }
+
     public static void AddModule<T>(this object obj, T module) where T : IModule
     {
         ModuleSub.AddModule?.Invoke(obj, module);
