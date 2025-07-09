@@ -8,10 +8,6 @@
 
   <ItemGroup>
     <PackageReference Include="EIV_Common" Version="0.0.3" />
-    <PackageReference Include="EIV_DataPack" Version="1.1.0" />
-    <PackageReference Include="EIV_JsonLib" Version="2.0.5.2" />
-    <PackageReference Include="ini-parser-netstandard" Version="2.5.2" />
-    <PackageReference Include="SemanticVersioning" Version="2.0.2" />
   </ItemGroup>
 
 </Project>
