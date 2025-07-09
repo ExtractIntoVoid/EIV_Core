@@ -7,7 +7,7 @@ public class HealthModule : BaseChangingModule<int>
         OnMinimum += Minimum;
     }
 
-    public string LastCause { get; private set;}
+    public string LastCause { get; private set; }
 
     public void Damage(int value, string Cause)
     {
@@ -28,6 +28,6 @@ public class HealthModule : BaseChangingModule<int>
     }
 
     public event Action<string> OnDeath;
-    public event Action<int value, string Cause> OnDamage;
-    public event Action<int value, bool EnableOverHeal> OnHeal;
+    public event Action<int, string> OnDamage;
+    public event Action<int, bool> OnHeal;
 }

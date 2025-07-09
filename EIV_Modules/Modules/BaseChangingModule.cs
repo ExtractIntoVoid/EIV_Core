@@ -33,33 +33,32 @@ public class BaseChangingModule<T> : IModule where T : IMinMaxValue<T>, INumber<
 
     public virtual void AddValue(T value, bool EnableOverflow)
     {
-        if (value < T.Zero)
+        if (value == T.Zero)
             return;
         var newValue = CurrentValue + value;
-        if (newValue > this.MaxValue)
+        if (newValue <= MaxValue)
         {
-            if (EnableOverflow)
-            {
-                this.MaxValue = newValue;
-                this.CurrentValue = newValue;
-            }
+            CurrentValue = newValue;
+            return;
         }
-        else
+        if (EnableOverflow)
         {
-            this.CurrentValue = newValue;
+            MaxValue = newValue;
+            CurrentValue = newValue;
         }
     }
 
     public virtual void RemoveValue(T value) 
     {
-        if (value < T.Zero)
+        if (value == T.Zero)
             return; 
-        this.CurrentValue -= value;
-        if (this.CurrentValue == this.MinValue)
-        {
+        var newValue = CurrentValue - value;
+        if (newValue < MinValue)
+            return;
+        CurrentValue = newValue;
+        if (CurrentValue == MinValue)
             OnMinimum?.Invoke();
-        }
     }
-    
+
     public event Action OnMinimum;
 }
