@@ -11,7 +11,7 @@ public static class ModuleExtensions
 
     public static List<T> GetModules<T>(this object obj) where T : IModule
     {
-        return (List<T>)ModuleSub.GetModuleList?.Invoke(obj, typeof(T));
+        return (List<T>)ModuleSub.GetModuleList?.Invoke(obj, typeof(T)).Select(x => x as T);
     }
 
     public static bool TryGetModule<T>(this object obj, out T out_t) where T : IModule
