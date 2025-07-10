@@ -6,13 +6,12 @@ using EIV_Core.Effects;
 using System.Collections.Generic;
 using System.Linq;
 using EIV_Core.Api.Events;
-using EIV_Core.Effects;
 
 namespace EIV_Core.Modules;
 
 public partial class EffectModule : IModule
 {
-    internal List<EffectBase> Effects = [];
+    internal List<CoreEffect> Effects = [];
 
     public void ApplyEffectFromItem(CoreItem item)
     {

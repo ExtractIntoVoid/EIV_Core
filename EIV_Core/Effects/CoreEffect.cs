@@ -1,4 +1,6 @@
 using EIV_Common.Coroutines;
+using EIV_Coroutines.CoroutineWorkers;
+using EIV_Coroutines;
 using EIV_JsonLib;
 using EIV_Core.Modules;
 using System.Collections.Generic;
@@ -18,14 +20,14 @@ public abstract class CoreEffect(Effect effect, object parent)
 
     public virtual void StartEffect(double Seconds, int Strength)
     {
-        TimeCoroutine = CoroutineStaticExt.StartCoroutine(TimeStuff(Seconds, Strength), "Effect");
+        TimeCoroutine = CoroutineStaticExt<double>.StartCoroutine(TimeStuff(Seconds, Strength), "Effect");
     }
 
     public virtual void StopEffect()
     {
         if (TimeCoroutine == null)
             return;
-        CoroutineStaticExt.KillCoroutineInstance(TimeCoroutine.Value);
+        CoroutineStaticExt<double>.KillCoroutineInstance(TimeCoroutine.Value);
     }
 
     public virtual void EffectTick(int Strength)
@@ -46,7 +48,7 @@ public abstract class CoreEffect(Effect effect, object parent)
     {
         yield return JsonEffect.Time.WaitUntilApply;
         double time = InitialTime;
-        yield return CoroutineStaticExt.WaitUntilZero(
+        yield return CoroutineStaticExt<double>.WaitUntilZero(
         () => 
         {
             EffectTick(Strength);
