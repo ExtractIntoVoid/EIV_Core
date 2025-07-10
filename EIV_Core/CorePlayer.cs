@@ -1,5 +1,4 @@
-using EIV_Modules.Extensions;
-using EIV_Modules.Modules;
+using EIV_Core.Extensions;
 using EIV_Core.Modules;
 
 namespace EIV_Core;

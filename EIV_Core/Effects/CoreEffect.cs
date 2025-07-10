@@ -1,6 +1,6 @@
 using EIV_Common.Coroutines;
 using EIV_JsonLib;
-using EIV_Modules.Modules;
+using EIV_Core.Modules;
 using System.Collections.Generic;
 
 namespace EIV_Core.Effects;
