@@ -1,6 +1,6 @@
 using System.Numerics;
 
-namespace EIV_Modules.Modules;
+namespace EIV_Core.Modules;
 
 public class BaseChangingModule<T> : IModule where T : IMinMaxValue<T>, INumber<T>
 {

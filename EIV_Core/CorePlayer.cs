@@ -1,5 +1,6 @@
 using EIV_Modules.Extensions;
 using EIV_Modules.Modules;
+using EIV_Core.Modules;
 
 namespace EIV_Core;
 
@@ -12,13 +13,14 @@ public abstract class CorePlayer
     public HealthModule Health { get; private set; }
     public EnergyModule Energy { get; private set; }
     public HydrationModule Hydration { get; private set; }
+    public EffectModule Effect { get; private set; }
 
     public void InitModules()
     {
         Health = this.AddAndGetModuleNode<HealthModule>();
         Energy = this.AddAndGetModuleNode<EnergyModule>();
         Hydration = this.AddAndGetModuleNode<HydrationModule>();
-        this.AddAndGetModuleNode<EffectModule>();
+        Effect = this.AddAndGetModuleNode<EffectModule>();
         this.AddAndGetModuleNode<InventoryModule>();
     }
 }

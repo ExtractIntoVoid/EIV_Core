@@ -5,7 +5,7 @@ using EIV_JsonLib.Extension;
 using EIV_Core.Effects;
 using System.Collections.Generic;
 using System.Linq;
-using EIV_Modules;
+using EIV_Core.Api.Events;
 
 namespace EIV_Core.Modules;
 
@@ -37,16 +37,8 @@ public partial class EffectModule : IModule
             return;
         if (effect.Strength.Min > sideEffect.EffectStrength)
             return;
-        /*
-        TODO: API
-        MakeEffectBase makeEffectBase = new(this, effect);
-        V2Manager.TriggerEvent(makeEffectBase);
-        // This means we couldnt made EffectBase
-        if (makeEffectBase.EffectBase == null)
-            return;
-        makeEffectBase.EffectBase.StartEffect(sideEffect.EffectTime, sideEffect.EffectStrength);
-        Effects.Add(makeEffectBase.EffectBase);
-        */
+
+        EffectApply(effect, sideEffect.EffectTime, sideEffect.EffectStrength);
     }
 
 
@@ -62,15 +54,12 @@ public partial class EffectModule : IModule
     {
         if (effect == null)
             return;
-        /* TODO: API
-        MakeEffectBase makeEffectBase = new(this, effect);
-        V2Manager.TriggerEvent(makeEffectBase);
-        // This means we couldnt made EffectBase
-        if (makeEffectBase.EffectBase == null)
+
+        var effectBase = EffectEvents.MakeEffect(effect, this);
+        if (effectBase == null)
             return;
-        makeEffectBase.EffectBase.StartEffect(time, strength);
-        Effects.Add(makeEffectBase.EffectBase);
-        */
+        effectBase.StartEffect(time, strength);
+        Effects.Add(effectBase);
     }
 
     public void DisableEffect(string EffectName)
@@ -79,6 +68,7 @@ public partial class EffectModule : IModule
         if (effect == null)
             return;
         effect.StopEffect();
+        Effects.Remove(effect);
     }
 
     public List<string> GetEffectNames() => Effects.Select(x => x.CoreEffect.EffectName).ToList();

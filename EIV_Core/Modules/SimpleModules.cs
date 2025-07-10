@@ -1,4 +1,4 @@
-namespace EIV_Modules.Modules;
+namespace EIV_Core.Modules;
 
 public partial class EnergyModule() : BaseChangingModule<int>(0, 100);
 

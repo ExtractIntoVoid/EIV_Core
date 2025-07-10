@@ -1,6 +1,7 @@
 using System.Linq;
+using EIV_Core.Modules;
 
-namespace EIV_Modules.Extensions;
+namespace EIV_Core.Extensions;
 
 public static class ModuleSub
 {
