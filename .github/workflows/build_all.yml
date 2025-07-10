@@ -15,7 +15,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        projname: [ 'EIV_Core', 'EIV_Modules' ]
+        projname: [ 'EIV_Core' ]
     steps:
     - name: Checkout
       uses: actions/checkout@v4
